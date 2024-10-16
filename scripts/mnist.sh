@@ -1,0 +1,3 @@
+CUDA_VISIBLE_DEVICES=0 python pretrain.py --warmup_batch_size 32 --warmup_lr 0.001 --data_dir ./data --save_freq 10 --max_server_rate 0.1 --server_rate 0.1 --dataset mnist --num_users 5
+CUDA_VISIBLE_DEVICES=0 python flt.py --warmup_lr 0.001 --lr 0.0001 --data_dir ./data --server_rate 0.1 --eval_from 50 --train_epochs 400 --dataset mnist --mode mixlinear --remove_idx 0 --num_users 5
+python fedremoval.py --warmup_lr 0.001 --lr 0.0001 --weight_decay 0.01 --data_dir ./data --server_rate 0.1 --max_server_rate 0.1 --eval_from 50 --num_epochs 3200 --train_epochs 400 --removal_lr 0.01 --dataset mnist --mode mixlinear --remove_idx 0 --num_users 5
